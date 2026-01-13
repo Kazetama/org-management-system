@@ -58,6 +58,9 @@ export type PaginationLink = {
 };
 
 export type Paginated<T> = {
+    total: ReactNode;
+    to: ReactNode;
+    from: ReactNode;
     data: T[];
     links: PaginationLink[];
 };

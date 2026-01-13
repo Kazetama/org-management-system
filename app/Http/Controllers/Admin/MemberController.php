@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\MembersExport;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MemberRequest;
-use Illuminate\Http\Request;
+use App\Imports\MembersImport;
 use App\Models\Member;
+use Illuminate\Http\Request;
 use Inertia\Inertia;
+use Maatwebsite\Excel\Facades\Excel;
 
 class MemberController extends Controller
 {
@@ -63,5 +66,24 @@ class MemberController extends Controller
         $member->delete();
 
         return back()->with('success', 'Member deleted');
+    }
+
+    public function export()
+    {
+        return Excel::download(
+            new MembersExport,
+            'members.xlsx'
+        );
+    }
+
+    public function import(Request $request)
+    {
+        $request->validate([
+            'file' => ['required', 'file', 'mimes:xlsx,csv'],
+        ]);
+
+        Excel::import(new MembersImport, $request->file('file'));
+
+        return back()->with('success', 'Members imported successfully');
     }
 }
