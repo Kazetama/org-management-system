@@ -22,6 +22,11 @@ const mainNavItems: NavItem[] = [
         href: dashboard(),
         icon: LayoutGrid,
     },
+    {
+        title: 'Members Management',
+        href: '/members',
+        icon: Folder,
+    }
 ];
 
 const footerNavItems: NavItem[] = [

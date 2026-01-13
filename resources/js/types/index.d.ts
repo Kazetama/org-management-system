@@ -40,3 +40,24 @@ export interface User {
     updated_at: string;
     [key: string]: unknown; // This allows for additional properties...
 }
+
+type Member = {
+    id: number;
+    full_name: string;
+    batch_year: number;
+    whatsapp_number: string;
+    status: 'active' | 'inactive' | 'trial';
+    gender: 'M' | 'F';
+    department: string;
+};
+
+export type PaginationLink = {
+    url: string | null;
+    label: string;
+    active: boolean;
+};
+
+export type Paginated<T> = {
+    data: T[];
+    links: PaginationLink[];
+};
