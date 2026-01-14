@@ -64,3 +64,16 @@ export type Paginated<T> = {
     data: T[];
     links: PaginationLink[];
 };
+
+export type Event = {
+    id: number
+    title: string
+    description?: string | null
+    event_date: string
+    location?: string | null
+    max_participants: number
+    status: 'open' | 'closed'
+    image?: string | null
+    created_at: string
+    updated_at: string
+}

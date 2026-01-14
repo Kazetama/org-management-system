@@ -26,6 +26,11 @@ const mainNavItems: NavItem[] = [
         title: 'Members Management',
         href: '/members',
         icon: Folder,
+    },
+    {
+        title: 'Events Management',
+        href: '/events',
+        icon: Folder,
     }
 ];
 

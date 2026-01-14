@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use Laravel\Fortify\Features;
 use App\Http\Controllers\Admin\MemberController;
+use App\Http\Controllers\Admin\EventController;
 
 Route::get('/', function () {
     return Inertia::render('welcome', [
@@ -25,6 +26,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::resource('members', MemberController::class)
         ->except(['show']);
+
+    Route::resource('events', EventController::class);
 });
 
 
