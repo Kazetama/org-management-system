@@ -22,7 +22,7 @@ class MemberController extends Controller
                     ->orWhere('batch_year', 'like', "%{$search}%");
             })
             ->latest()
-            ->paginate(10)
+            ->paginate(7)
             ->withQueryString();
 
         return Inertia::render('members/index', [
