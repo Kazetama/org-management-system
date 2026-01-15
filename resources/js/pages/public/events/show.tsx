@@ -20,8 +20,9 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import type { PublicEvent } from '@/types';
 
-export default function EventShow({ event }: any) {
+export default function EventShow({ event }: { event: PublicEvent }) {
     const { flash }: any = usePage().props;
 
     const { data, setData, post, processing, errors, reset } = useForm({

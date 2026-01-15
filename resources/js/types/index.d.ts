@@ -77,3 +77,8 @@ export type Event = {
     created_at: string
     updated_at: string
 }
+
+export type PublicEvent = Event & {
+    registered: number
+    is_full: boolean
+}
