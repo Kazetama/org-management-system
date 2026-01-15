@@ -15,4 +15,13 @@ class Event extends Model
         'image',
         'status',
     ];
+
+    protected $casts = [
+        'event_date' => 'date',
+    ];
+
+    public function registrations()
+    {
+        return $this->hasMany(EventRegistration::class);
+    }
 }
